@@ -89,6 +89,7 @@ class TeleopDeepracer(Node):
                     wheel_msg.angle = 0.0
 
                 # Publish the control message
+                self.get_logger().info("Publishing message: throttle={}, angle={}".format(wheel_msg.throttle, wheel_msg.angle))
                 self.wheel_publisher.publish(wheel_msg)
 
         except Exception as e:
