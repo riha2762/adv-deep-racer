@@ -73,7 +73,7 @@ class TeleopDeepracer(Node):
                 
                 # Control throttle and steering based on key input
                 if key == '\x1b[A':  # Up arrow
-                   self.throttle = 0.30
+                   self.throttle = 0.70
 
                 elif key == '\x1b[B':  # Down arrow
                     self.throttle = 0.0
