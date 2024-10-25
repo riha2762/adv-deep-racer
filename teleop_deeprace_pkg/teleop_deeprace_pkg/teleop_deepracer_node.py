@@ -28,7 +28,7 @@ Error handling :
 from deepracer_interfaces_pkg.msg import ServoCtrlMsg
 import rclpy
 from rclpy.node import Node
-import sys, termios, tty, select # takes in keyboard input
+import sys, termios, tty # takes in keyboard input
 
 
 class TeleopDeepracer(Node):
@@ -67,32 +67,40 @@ class TeleopDeepracer(Node):
 
     def run(self):
         wheel_msg = ServoCtrlMsg()
+        throttle_increment = 0.5  # Increment step for throttle
+        angle_increment = 1.0     # Increment step for angle
+        max_value = 1.0            # Maximum value for throttle and angle
+        min_value = -1.0           # Minimum value for throttle and angle
+
         try:
             while True:
-                # Use select to wait for input with a timeout
-                dr, dw, de = select.select([sys.stdin], [], [], 0.5)  # 0.1 second timeout
-
-                if dr:  # If input is available
-                    key = self.get_key()
-
-                    # Control throttle and steering based on key input
-                    if key == '\x1b[A':  # Up arrow pressed
-                        self.throttle = 1.0
-                    elif key == '\x1b[B':  # Down arrow pressed
-                        self.throttle = -1.0
-                    elif key == '\x1b[C':  # Right arrow pressed
-                        self.angle = -1.0
-                    elif key == '\x1b[D':  # Left arrow pressed
-                        self.angle = 1.0
-                    elif key == ' ':  # Spacebar to stop the robot
-                        self.throttle = 0.0
-                        self.angle = 0.0
-                    elif key == '\x03':  # Ctrl+C to exit
-                        break
+                key = self.get_key()
+                
+                # Control throttle and steering based on key input
+                if key == '\x1b[A':  # Up arrow
+                    self.throttle = min(self.throttle + throttle_increment, max_value)
+                elif key == '\x1b[B':  # Down arrow
+                    self.throttle = max(self.throttle - throttle_increment, min_value)
+                elif key == '\x1b[C':  # Right arrow
+                    self.angle = max(self.angle - angle_increment, min_value)
+                elif key == '\x1b[D':  # Left arrow
+                    self.angle = min(self.angle + angle_increment, max_value)
+                elif key == '\x03':  # Ctrl+C to exit
+                    break
+                #if space, stop robot
+                elif key == ' ':
+                    self.throttle = 0.0    
                 else:
-                    # No key was pressed, stop the robot
-                    self.throttle = 0.0
-                    self.angle = 0.0
+                    # Gradually reduce throttle and angle to zero if no key is pressed
+                    if self.throttle > 0:
+                        self.throttle = max(self.throttle - throttle_increment, 0)
+                    elif self.throttle < 0:
+                        self.throttle = min(self.throttle + throttle_increment, 0)
+
+                    if self.angle > 0:
+                        self.angle = max(self.angle - angle_increment, 0)
+                    elif self.angle < 0:
+                        self.angle = min(self.angle + angle_increment, 0)
 
                 # Populate the control message
                 wheel_msg.throttle = self.throttle
@@ -110,7 +118,6 @@ class TeleopDeepracer(Node):
             wheel_msg.angle = 0.0
             self.wheel_publisher.publish(wheel_msg)
             self.get_logger().info(f"Published Message: throttle={wheel_msg.throttle}, steering={wheel_msg.angle}")
-
 
 
 
