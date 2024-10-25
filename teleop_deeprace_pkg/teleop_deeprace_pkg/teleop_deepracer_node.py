@@ -73,7 +73,7 @@ class TeleopDeepracer(Node):
                     wheel_msg.throttle = 0.30
                     wheel_msg.angle = 0.0
                 elif key == '\x1b[B':  # Down arrow
-                    wheel_msg.throttle = -0.30
+                    wheel_msg.throttle = 0.0
                     wheel_msg.angle = 0.0
                 elif key == '\x1b[C':  # Right arrow
                     wheel_msg.throttle = 0.0
@@ -115,7 +115,7 @@ def main(args=None):
     finally:
         node.destroy_node()
         rclpy.shutdown()
-    
+
 
 
 if __name__ == '__main__':
