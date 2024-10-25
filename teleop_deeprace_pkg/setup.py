@@ -20,7 +20,7 @@ setup(
     tests_require=['pytest'],
     entry_points={
         'console_scripts': [
-            'teleop_deepracer_node = teleop_deepracer_node:main'
+            'teleop_deepracer_node = teleop_deepracer_node.py:main'
         ],
     },
 )
