@@ -33,6 +33,9 @@ import sys, termios, tty # takes in keyboard input
 
 class TeleopDeepracer(Node):
 
+    throttle = 0.0
+    angle = 0.0
+
     def __init__(self):
         super().__init__('teleop_deepracer_node')
         
@@ -70,23 +73,26 @@ class TeleopDeepracer(Node):
                 
                 # Control throttle and steering based on key input
                 if key == '\x1b[A':  # Up arrow
-                    wheel_msg.throttle = 0.30
-                    wheel_msg.angle = 0.0
+                   self.throttle = 0.30
+
                 elif key == '\x1b[B':  # Down arrow
-                    wheel_msg.throttle = 0.0
-                    wheel_msg.angle = 0.0
+                    self.throttle = 0.0
+
                 elif key == '\x1b[C':  # Right arrow
-                    wheel_msg.throttle = 0.0
-                    wheel_msg.angle = 0.5
+                    self.angle = -0.5
+                
                 elif key == '\x1b[D':  # Left arrow
-                    wheel_msg.throttle = 0.0
-                    wheel_msg.angle = -0.5
+                    self.angle = 0.5
                 elif key == '\x03':  # Ctrl+C to exit
+
                     break
                 else:
+                    self.throttle = 0.0
                     # Stop if no valid key is pressed
-                    wheel_msg.throttle = 0.0
-                    wheel_msg.angle = 0.0
+
+                # Populate the control message
+                wheel_msg.throttle = self.throttle
+                wheel_msg.angle = self.angle
 
                 # Publish the control message
                 self.get_logger().info("Publishing message: throttle={}, angle={}".format(wheel_msg.throttle, wheel_msg.angle))
