@@ -25,14 +25,12 @@ Error handling :
 """
 
 
+import pygame
 from deepracer_interfaces_pkg.msg import ServoCtrlMsg
 import rclpy
 from rclpy.node import Node
-import sys, termios, tty # takes in keyboard input
-
 
 class TeleopDeepracer(Node):
-
     throttle = 0.0
     angle = 0.0
 
@@ -41,67 +39,35 @@ class TeleopDeepracer(Node):
         
         # Publisher for the servo control messages
         self.wheel_publisher = self.create_publisher(ServoCtrlMsg, "/ctrl_pkg/servo_msg", 10)
-        self.get_logger().info("Teleop node has started. Use arrow keys to control the Deepracer.")
+        self.get_logger().info("Teleop node has started. Use the PS4 controller to control the Deepracer.")
 
-        
-        self.settings = termios.tcgetattr(sys.stdin)
-        
-    # This did not work for turtlesim, so I have commented it out    
-    # def get_key(self): # Don't get it, it was GPT written - may have to edit if it doesnt work right
-    #     tty.setraw(sys.stdin.fileno()) 
-    #     key = sys.stdin.read(1)
-    #     termios.tcsetattr(sys.stdin, termios.TCSADRAIN, self.settings)
-    #     return key
-    
-    def get_key(self):
-        fd = sys.stdin.fileno()
-        old_settings = termios.tcgetattr(fd)
-        try:
-            tty.setraw(fd)
-            key = sys.stdin.read(1)  # Read 1 character first
-            if key == '\x1b':  # If the first character is an escape character
-                key += sys.stdin.read(2)  # Read the next 2 characters (for arrow keys)
-        finally:
-            termios.tcsetattr(fd, termios.TCSADRAIN, old_settings)
-        return key
+        # Initialize pygame and the joystick
+        pygame.init()
+        pygame.joystick.init()
+        self.controller = pygame.joystick.Joystick(0)
+        self.controller.init()
 
     def run(self):
         wheel_msg = ServoCtrlMsg()
-        throttle_increment = 0.05  # Increment step for throttle
-        angle_increment = 0.1     # Increment step for angle
-        max_value = 1.0            # Maximum value for throttle and angle
-        min_value = -1.0           # Minimum value for throttle and angle
+        throttle_increment = 0.05
+        angle_increment = 0.05
+
+        max_value = 1.0
+        min_value = -1.0
 
         try:
             while True:
-                key = self.get_key()
-                
-                # Control throttle and steering based on key input
-                if key == '\x1b[A':  # Up arrow
-                    self.throttle = min(self.throttle + throttle_increment, max_value)
-                elif key == '\x1b[B':  # Down arrow
-                    self.throttle = max(self.throttle - throttle_increment, min_value)
-                elif key == '\x1b[C':  # Right arrow
-                    self.angle = max(self.angle - angle_increment, min_value)
-                elif key == '\x1b[D':  # Left arrow
-                    self.angle = min(self.angle + angle_increment, max_value)
-                elif key == '\x03':  # Ctrl+C to exit
-                    break
-                #if space, stop robot
-                elif key == ' ':
-                    self.throttle = 0.0
-                    self.angle = 0.0
-                else:
-                    # Gradually reduce throttle and angle to zero if no key is pressed
-                    if self.throttle > 0:
-                        self.throttle = max(self.throttle - throttle_increment, 0)
-                    elif self.throttle < 0:
-                        self.throttle = min(self.throttle + throttle_increment, 0)
+                # Process pygame events
+                for event in pygame.event.get():
+                    if event.type == pygame.JOYAXISMOTION:
+                        # Axis 1 is typically the left stick's vertical axis (throttle)
+                        # Axis 3 is typically the right stick's horizontal axis (steering)
+                        self.throttle = -self.controller.get_axis(1)  # Inverted for forward/reverse control
+                        self.angle = self.controller.get_axis(3)
 
-                    if self.angle > 0:
-                        self.angle = max(self.angle - angle_increment, 0)
-                    elif self.angle < 0:
-                        self.angle = min(self.angle + angle_increment, 0)
+                        # Clamp values to the range [-1, 1]
+                        self.throttle = max(min(self.throttle, max_value), min_value)
+                        self.angle = max(min(self.angle, max_value), min_value)
 
                 # Populate the control message
                 wheel_msg.throttle = self.throttle
@@ -120,10 +86,6 @@ class TeleopDeepracer(Node):
             self.wheel_publisher.publish(wheel_msg)
             self.get_logger().info(f"Published Message: throttle={wheel_msg.throttle}, steering={wheel_msg.angle}")
 
-
-
-
-
 def main(args=None):
     rclpy.init(args=args)
     node = TeleopDeepracer()
@@ -137,9 +99,5 @@ def main(args=None):
         node.destroy_node()
         rclpy.shutdown()
 
-
-
 if __name__ == '__main__':
     main()
-
-
