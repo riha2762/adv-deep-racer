@@ -68,7 +68,7 @@ class TeleopDeepracer(Node):
     def run(self):
         wheel_msg = ServoCtrlMsg()
         throttle_increment = 0.05  # Increment step for throttle
-        angle_increment = 0.3     # Increment step for angle
+        angle_increment = 1.0     # Increment step for angle
         max_value = 1.0            # Maximum value for throttle and angle
         min_value = -1.0           # Minimum value for throttle and angle
 
@@ -89,8 +89,7 @@ class TeleopDeepracer(Node):
                     break
                 #if space, stop robot
                 elif key == ' ':
-                    self.throttle = 0.0
-                    self.angle = 0.0        
+                    self.throttle = 0.0    
                 else:
                     # Gradually reduce throttle and angle to zero if no key is pressed
                     if self.throttle > 0:
