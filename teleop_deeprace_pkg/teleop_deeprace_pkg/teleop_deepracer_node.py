@@ -70,7 +70,7 @@ class TeleopDeepracer(Node):
         try:
             while True:
                 # Use select to wait for input with a timeout
-                dr, dw, de = select.select([sys.stdin], [], [], 0.1)  # 0.1 second timeout
+                dr, dw, de = select.select([sys.stdin], [], [], 0.5)  # 0.1 second timeout
 
                 if dr:  # If input is available
                     key = self.get_key()
