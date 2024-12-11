@@ -6,7 +6,7 @@ from sensor_msgs.msg import LaserScan
 import math
 from simple_pid import PID
 import sys, termios, tty # takes in keyboard input
-
+import threading
 class FollowWallNode(Node):
 
     def __init__(self):
@@ -34,6 +34,7 @@ class FollowWallNode(Node):
 
         self.moving = True
         self.reverse_run = False
+        self.stop = False
     def get_key(self):
         fd = sys.stdin.fileno()
         old_settings = termios.tcgetattr(fd)
@@ -45,7 +46,15 @@ class FollowWallNode(Node):
         finally:
             termios.tcsetattr(fd, termios.TCSADRAIN, old_settings)
         return key
-
+    def listen_for_keyboard_input(self):
+        while True:
+            key = self.get_key()
+            if key == 's':
+                self.stop = True
+                self.get_logger().info("Robot stopped by user.")
+            elif key == 'r':
+                self.stop = False
+                self.get_logger().info("Robot resumed by user.")
     def lidar_callback(self, msg: LaserScan):
         # Extract the LIDAR scan ranges
 
@@ -73,7 +82,14 @@ class FollowWallNode(Node):
         self.run(error_right)
 
     def run(self,error_right):
-
+        if self.stop:
+            self.get_logger().info("Robot is stopped.")
+            wheel_msg = ServoCtrlMsg()
+            wheel_msg.throttle = 0.0
+            wheel_msg.angle = 0.0
+            self.wheel_publisher.publish(wheel_msg)
+            return
+            
         base_throttle = 0.3
         angle_corrected = self.angle_pid(error_right)
         throttle_corrected = base_throttle + self.throttle_pid(abs(error_right))
