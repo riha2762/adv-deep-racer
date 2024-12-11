@@ -4,16 +4,18 @@ from rclpy.node import Node
 from geometry_msgs.msg import Twist
 from sensor_msgs.msg import LaserScan
 import math
-from simple_pid import PID
+from array import array
 import sys, termios, tty # takes in keyboard input
-import threading
+
 class FollowWallNode(Node):
+    throttle = 0.0
+    angle = 0.0
 
     def __init__(self):
         super().__init__('follow_wall__node')
         self.wheel_publisher = self.create_publisher(ServoCtrlMsg, "/ctrl_pkg/servo_msg", 10)
-        self.get_logger().info("Follow wall node with PID control has started.")
-        
+        self.get_logger().info("Follow wall  node has started.")
+        self.reverse_run = False
        #self.settings = termios.tcgetattr(sys.stdin)
 
         # Subscriber for LIDAR data
@@ -23,18 +25,10 @@ class FollowWallNode(Node):
             self.lidar_callback,
             10
         )
-        # always keep the mobile 0.5 meters away from right wall
-        self.desired_distance_right = 0.5
-
-        self.angle_pid = PID(1.0,0.0,0.1,setpoint = 0.0)
-        self.angle_pid.output_limits = (-1.0,1.0)
-
-        self.throttle_pid = PID(1.0,0.0,0.1,setpoint = 0.0)
-        self.throttle_pid.output_limits = (-1.0,1.0)
-
+        
+        # Initializing variables
         self.moving = True
-        self.reverse_run = False
-        self.stop = False
+
     def get_key(self):
         fd = sys.stdin.fileno()
         old_settings = termios.tcgetattr(fd)
@@ -46,15 +40,7 @@ class FollowWallNode(Node):
         finally:
             termios.tcsetattr(fd, termios.TCSADRAIN, old_settings)
         return key
-    def listen_for_keyboard_input(self):
-        while True:
-            key = self.get_key()
-            if key == 's':
-                self.stop = True
-                self.get_logger().info("Robot stopped by user.")
-            elif key == 'r':
-                self.stop = False
-                self.get_logger().info("Robot resumed by user.")
+
     def lidar_callback(self, msg: LaserScan):
         # Extract the LIDAR scan ranges
 
@@ -77,32 +63,47 @@ class FollowWallNode(Node):
         # Check for obstacles within the goal direction
         #Follow wall on the right
         dist_right = (dist_means[5]+dist_means[6])/2
-        
-        error_right = self.desired_distance_right - dist_right
-        self.run(error_right)
+       
+        self.run(dist_right)
 
-    def run(self,error_right):
-        if self.stop:
-            self.get_logger().info("Robot is stopped.")
-            wheel_msg = ServoCtrlMsg()
-            wheel_msg.throttle = 0.0
-            wheel_msg.angle = 0.0
-            self.wheel_publisher.publish(wheel_msg)
-            return
-            
-        base_throttle = 0.3
-        angle_corrected = self.angle_pid(error_right)
-        throttle_corrected = base_throttle + self.throttle_pid(abs(error_right))
+    def run(self,dist_right):
+        MIN_DISTANCE_RIGHT = 1.3
+        MAX_DISTANCE_RIGHT = 1.7
+        MEAN_DISTANCE_RIGHT = 1.5
+        wheel_msg = ServoCtrlMsg()
+        throttle_increment = 0.5  # Increment step for throttle
+        wheel_angle_increment = 1.0     # Increment step for angle
+        max_angle_value = 1.0            # Maximum value for throttle and angle
+        min_angle_value = -1.0           # Minimum value for throttle and angle
 
+        throttle_input = 0.48
+       # throttle_input = 0.0
         if self.reverse_run:
             throttle_input *= -1
-            angle_corrected *= -1
+            max_angle_value *= -1
+            min_angle_value *= -1
+        #key = self.get_key()
+
+        if dist_right < MIN_DISTANCE_RIGHT:
+            #turn left
+            self.get_logger().info("Turning left")
+            self.throttle = throttle_input
+            self.angle = max_angle_value
+        elif dist_right > MAX_DISTANCE_RIGHT:
+            #turn right
+            self.get_logger().info('Turning right')
+            self.throttle = throttle_input
+            self.angle = min_angle_value
+        else:
+            #straight
+            self.get_logger().info('Moving straight')
+            self.throttle = throttle_input
+            self.angle = 0.0
         # Populate the control message
-        wheel_msg = ServoCtrlMsg()
-        wheel_msg.throttle = throttle_corrected
-        wheel_msg.angle = angle_corrected
+        wheel_msg.throttle = self.throttle
+        wheel_msg.angle = self.angle
         # Publish the control message
-        self.get_logger().info(f"Error: {error_right:.2f}, Throttle: {wheel_msg.throttle:.2f}, Angle: {wheel_msg.angle:.2f}")
+        self.get_logger().info("Publishing message: throttle={}, angle={}".format(wheel_msg.throttle, wheel_msg.angle))
         self.wheel_publisher.publish(wheel_msg)
 
 def main(args=None):
