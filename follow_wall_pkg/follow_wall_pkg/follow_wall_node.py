@@ -60,7 +60,7 @@ class FollowWallNode(Node):
         self.run(error_left)
 
     def run(self,error_left):
-        base_throttle = 0
+        base_throttle = 0.0
         Kp = -0.5
         angle_corrected = Kp*error_left
         if angle_corrected > 1:
