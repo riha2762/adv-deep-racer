@@ -23,10 +23,10 @@ class FollowWallNode(Node):
             self.lidar_callback,
             10
         )
-        # always keep the mobile 2 meters away from right wall
-        self.desired_distance_right = 2
+        # always keep the mobile 1.0 meters away from right wall
+        self.desired_distance_right = 1.0 #initially
 
-        self.angle_pid = PID(0.7,0.0,0.0,setpoint = 0.0)
+        self.angle_pid = PID(-0.7,0.0,0.0,setpoint = 0.0)
         self.angle_pid.output_limits = (-1.0,1.0)
 
         self.stop = False
@@ -45,6 +45,7 @@ class FollowWallNode(Node):
         finally:
             termios.tcsetattr(fd, termios.TCSADRAIN, old_settings)
         return key
+
     def listen_for_keyboard_input(self):
         while True:
             key = self.get_key()
@@ -54,6 +55,7 @@ class FollowWallNode(Node):
             elif key == 'r':
                 self.stop = False
                 self.get_logger().info("resumed")
+
     def lidar_callback(self, msg: LaserScan):
         # Extract the LIDAR scan ranges
 
@@ -75,9 +77,13 @@ class FollowWallNode(Node):
 
         # Check for obstacles within the goal direction
         #Follow wall on the right
-        dist_right = (dist_means[5]+dist_means[6])/2
-        
-        error_right = dist_right - self.desired_distance_right 
+        dist_right = dist_means[6]
+        #dist_left = dist_means[1]
+
+        #self.desired_distance_right = (dist_right+dist_left)/2
+        #if (dist_right > self.desired_distance_right*0.8) and (dist_right < self.desired_distance_right*1.2):
+            #self.desired_distance_right = dist_right         
+        error_right = self.desired_distance_right - dist_right 
         self.run(error_right)
 
     def run(self,error_right):
