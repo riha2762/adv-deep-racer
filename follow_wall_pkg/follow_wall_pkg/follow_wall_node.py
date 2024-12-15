@@ -4,9 +4,10 @@ from rclpy.node import Node
 from geometry_msgs.msg import Twist
 from sensor_msgs.msg import LaserScan
 import math
-from simple_pid import PID
 import sys, termios, tty # takes in keyboard input
 import threading
+import numpy as np
+
 class FollowWallNode(Node):
 
     def __init__(self):
@@ -39,6 +40,15 @@ class FollowWallNode(Node):
         angle_min = msg.angle_min
         angle_max = msg.angle_max
         angle_increment = msg.angle_increment
+
+        #to detect if we have an obsticle in front, we use the front 30 degrees
+        #15 degree from the mininum angle
+        Num_indices = (15*(np.pi/180))/angle_increment
+        Last_index = int((angle_max-angle_min)/angle_increment)-1
+
+        front_distatnces = distances[0:int(Num_indices)]
+        front_distatnces = front_distatnces.append(distances[(Last_index-Num_indices):Last_index])
+        print("Mean Front Distance: ",math.fsum(front_distatnces)/len(front_distatnces))
        
         for i in range(len(distances)):
             if math.isinf(distances[i]):
