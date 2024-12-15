@@ -60,13 +60,13 @@ class FollowWallNode(Node):
         self.run(error_left)
 
     def run(self,error_left):
-        base_throttle = 0.0
-        Kp = -0.5
+        base_throttle = 0.5
+        Kp = -0.4
         angle_corrected = Kp*error_left
-        if angle_corrected > 1:
-            angle_corrected = 1
-        if angle_corrected < -1:
-            angle_corrected = -1
+        if angle_corrected > 1.0:
+            angle_corrected = 1.0
+        if angle_corrected < -1.0:
+            angle_corrected = -1.0
 
         if self.reverse_run:
             throttle_input *= -1
@@ -76,7 +76,7 @@ class FollowWallNode(Node):
         wheel_msg.throttle = base_throttle
         wheel_msg.angle = angle_corrected
         # Publish the control message
-        self.get_logger().info(f"Error: {error_right:.2f}, Throttle: {wheel_msg.throttle:.2f}, Angle: {wheel_msg.angle:.2f}")
+        self.get_logger().info(f"Error: {error_left:.2f}, Throttle: {wheel_msg.throttle:.2f}, Angle: {wheel_msg.angle:.2f}")
         self.wheel_publisher.publish(wheel_msg)
 
 def main(args=None):
