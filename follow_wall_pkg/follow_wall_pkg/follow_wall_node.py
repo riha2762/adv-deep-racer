@@ -25,11 +25,11 @@ class FollowWallNode(Node):
             10
         )
         # always keep the mobile 1.0 meters away from right wall
-        self.desired_distance_right = 1.0 
+        self.desired_distance_right = 1.1
 
         #self.angle_pid = PID(-0.7,0.0,0.0,setpoint = 0.0)
         #self.angle_pid.output_limits = (-1.0,1.0)
-
+        self.previous_error = 0.0
         self.reverse_run = False
 
 
@@ -41,38 +41,56 @@ class FollowWallNode(Node):
         angle_max = msg.angle_max
         angle_increment = msg.angle_increment
 
+        angle_15_rad = math.radians(15)
+        angle_30_rad = math.radians(30)
+
+        start_index = int((angle_15_rad - angle_min) / angle_increment)
+        end_index = int((angle_30_rad - angle_min) / angle_increment)
+
+        start_index = max(0, start_index)
+        end_index = min(len(distances), end_index)
+
+        relevant_distances = distances[start_index:end_index]
+
+        
+        error_left = self.desired_distance_right - sum(relevant_distances) / len(relevant_distances)
+
+
         #to detect if we have an obsticle in front, we use the front 30 degrees
         #15 degree from the mininum angle
         Num_indices = (15*(np.pi/180))/angle_increment
         Last_index = int((angle_max-angle_min)/angle_increment)-1
 
-        front_distatnces = distances[0:int(Num_indices)]
-        front_distatnces = front_distatnces.append(distances[(Last_index-Num_indices):Last_index])
-        print("Mean Front Distance: ",math.fsum(front_distatnces)/len(front_distatnces))
+        # front_distatnces = distances[0:int(Num_indices)]
+        # front_distatnces = front_distatnces.append(distances[(Last_index-int(Num_indices)):Last_index])
+        # print("Mean Front Distance: ",math.fsum(front_distatnces)/len(front_distatnces))
        
         for i in range(len(distances)):
             if math.isinf(distances[i]):
                 distances[i] = 0.0
         dist_means = []
         len_dist = len(distances)
-        for i in range(8):
-            dist_mean_ = distances[int(len_dist*i/8):int(len_dist*(i+1)/8)]
+        for i in range(24):
+            dist_mean_ = distances[int(len_dist*i/24):int(len_dist*(i+1)/24)]
             dist_means.append(math.fsum(dist_mean_)/len(dist_mean_))
-        for i in range(8):
+        for i in range(24):
             print(i," ",dist_means[i])
 
         # Check for obstacles within the goal direction
         #Follow wall on the right
         #dist_right = dist_means[6]
-        dist_left = dist_means[1]
-         
+        dist_left = (dist_means[1]+dist_means[2] + dist_means[3] + dist_means[4])/4
+        
         error_left = self.desired_distance_right - dist_left
         self.run(error_left)
 
     def run(self,error_left):
-        base_throttle = 0.6
-        Kp = -0.8
-        angle_corrected = Kp*error_left
+        base_throttle = 0.65
+        Kp = -0.4
+        Kd = 0.05
+        derivative = (error_left - self.previous_error)
+        self.previous_error = error_left
+        angle_corrected = Kp*error_left + Kd * derivative
         if angle_corrected > 1.0:
             angle_corrected = 1.0
         if angle_corrected < -1.0:
