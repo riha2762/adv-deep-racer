@@ -1,0 +1,3 @@
+[console_scripts]
+follow_wall_node = follow_wall_pkg.follow_wall_node:main
+

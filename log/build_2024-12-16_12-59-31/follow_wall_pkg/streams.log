@@ -1,0 +1,37 @@
+[2.480s] Invoking command in '/home/deepracer/Desktop/deepracer_ws/src/adv-deep-racer/follow_wall_pkg': PYTHONPATH=/home/deepracer/Desktop/deepracer_ws/src/adv-deep-racer/install/follow_wall_pkg/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py egg_info --egg-base ../build/follow_wall_pkg build --build-base /home/deepracer/Desktop/deepracer_ws/src/adv-deep-racer/build/follow_wall_pkg/build install --prefix /home/deepracer/Desktop/deepracer_ws/src/adv-deep-racer/install/follow_wall_pkg --record /home/deepracer/Desktop/deepracer_ws/src/adv-deep-racer/build/follow_wall_pkg/install.log --single-version-externally-managed
+[5.026s] running egg_info
+[5.033s] creating ../build/follow_wall_pkg/follow_wall_pkg.egg-info
+[5.036s] writing ../build/follow_wall_pkg/follow_wall_pkg.egg-info/PKG-INFO
+[5.040s] writing dependency_links to ../build/follow_wall_pkg/follow_wall_pkg.egg-info/dependency_links.txt
+[5.043s] writing entry points to ../build/follow_wall_pkg/follow_wall_pkg.egg-info/entry_points.txt
+[5.046s] writing requirements to ../build/follow_wall_pkg/follow_wall_pkg.egg-info/requires.txt
+[5.047s] writing top-level names to ../build/follow_wall_pkg/follow_wall_pkg.egg-info/top_level.txt
+[5.069s] writing manifest file '../build/follow_wall_pkg/follow_wall_pkg.egg-info/SOURCES.txt'
+[5.443s] reading manifest file '../build/follow_wall_pkg/follow_wall_pkg.egg-info/SOURCES.txt'
+[5.460s] writing manifest file '../build/follow_wall_pkg/follow_wall_pkg.egg-info/SOURCES.txt'
+[5.462s] running build
+[5.462s] running build_py
+[5.465s] creating /home/deepracer/Desktop/deepracer_ws/src/adv-deep-racer/build/follow_wall_pkg/build
+[5.466s] creating /home/deepracer/Desktop/deepracer_ws/src/adv-deep-racer/build/follow_wall_pkg/build/lib
+[5.468s] creating /home/deepracer/Desktop/deepracer_ws/src/adv-deep-racer/build/follow_wall_pkg/build/lib/follow_wall_pkg
+[5.471s] copying follow_wall_pkg/__init__.py -> /home/deepracer/Desktop/deepracer_ws/src/adv-deep-racer/build/follow_wall_pkg/build/lib/follow_wall_pkg
+[5.475s] copying follow_wall_pkg/follow_wall_node.py -> /home/deepracer/Desktop/deepracer_ws/src/adv-deep-racer/build/follow_wall_pkg/build/lib/follow_wall_pkg
+[5.478s] running install
+[5.487s] running install_lib
+[5.504s] creating /home/deepracer/Desktop/deepracer_ws/src/adv-deep-racer/install/follow_wall_pkg/lib/python3.8/site-packages/follow_wall_pkg
+[5.510s] copying /home/deepracer/Desktop/deepracer_ws/src/adv-deep-racer/build/follow_wall_pkg/build/lib/follow_wall_pkg/__init__.py -> /home/deepracer/Desktop/deepracer_ws/src/adv-deep-racer/install/follow_wall_pkg/lib/python3.8/site-packages/follow_wall_pkg
+[5.510s] copying /home/deepracer/Desktop/deepracer_ws/src/adv-deep-racer/build/follow_wall_pkg/build/lib/follow_wall_pkg/follow_wall_node.py -> /home/deepracer/Desktop/deepracer_ws/src/adv-deep-racer/install/follow_wall_pkg/lib/python3.8/site-packages/follow_wall_pkg
+[5.527s] byte-compiling /home/deepracer/Desktop/deepracer_ws/src/adv-deep-racer/install/follow_wall_pkg/lib/python3.8/site-packages/follow_wall_pkg/__init__.py to __init__.cpython-38.pyc
+[5.538s] byte-compiling /home/deepracer/Desktop/deepracer_ws/src/adv-deep-racer/install/follow_wall_pkg/lib/python3.8/site-packages/follow_wall_pkg/follow_wall_node.py to follow_wall_node.cpython-38.pyc
+[5.543s] running install_data
+[5.557s] creating /home/deepracer/Desktop/deepracer_ws/src/adv-deep-racer/install/follow_wall_pkg/share/ament_index
+[5.558s] creating /home/deepracer/Desktop/deepracer_ws/src/adv-deep-racer/install/follow_wall_pkg/share/ament_index/resource_index
+[5.559s] creating /home/deepracer/Desktop/deepracer_ws/src/adv-deep-racer/install/follow_wall_pkg/share/ament_index/resource_index/packages
+[5.563s] copying resource/follow_wall_pkg -> /home/deepracer/Desktop/deepracer_ws/src/adv-deep-racer/install/follow_wall_pkg/share/ament_index/resource_index/packages
+[5.564s] copying package.xml -> /home/deepracer/Desktop/deepracer_ws/src/adv-deep-racer/install/follow_wall_pkg/share/follow_wall_pkg
+[5.570s] running install_egg_info
+[5.596s] Copying ../build/follow_wall_pkg/follow_wall_pkg.egg-info to /home/deepracer/Desktop/deepracer_ws/src/adv-deep-racer/install/follow_wall_pkg/lib/python3.8/site-packages/follow_wall_pkg-0.0.0-py3.8.egg-info
+[5.603s] running install_scripts
+[5.905s] Installing follow_wall_node script to /home/deepracer/Desktop/deepracer_ws/src/adv-deep-racer/install/follow_wall_pkg/lib/follow_wall_pkg
+[5.915s] writing list of installed files to '/home/deepracer/Desktop/deepracer_ws/src/adv-deep-racer/build/follow_wall_pkg/install.log'
+[6.091s] Invoked command in '/home/deepracer/Desktop/deepracer_ws/src/adv-deep-racer/follow_wall_pkg' returned '0': PYTHONPATH=/home/deepracer/Desktop/deepracer_ws/src/adv-deep-racer/install/follow_wall_pkg/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py egg_info --egg-base ../build/follow_wall_pkg build --build-base /home/deepracer/Desktop/deepracer_ws/src/adv-deep-racer/build/follow_wall_pkg/build install --prefix /home/deepracer/Desktop/deepracer_ws/src/adv-deep-racer/install/follow_wall_pkg --record /home/deepracer/Desktop/deepracer_ws/src/adv-deep-racer/build/follow_wall_pkg/install.log --single-version-externally-managed

@@ -25,7 +25,7 @@ class FollowWallNode(Node):
             10
         )
         # always keep the mobile 1.0 meters away from right wall
-        self.desired_distance_right = 1.0
+        self.desired_distance_right = 1.1
 
         #self.angle_pid = PID(-0.7,0.0,0.0,setpoint = 0.0)
         #self.angle_pid.output_limits = (-1.0,1.0)
@@ -40,6 +40,20 @@ class FollowWallNode(Node):
         angle_min = msg.angle_min
         angle_max = msg.angle_max
         angle_increment = msg.angle_increment
+
+        angle_15_rad = math.radians(15)
+        angle_30_rad = math.radians(30)
+
+        start_index = int((angle_15_rad - angle_min) / angle_increment)
+        end_index = int((angle_30_rad - angle_min) / angle_increment)
+
+        start_index = max(0, start_index)
+        end_index = min(len(distances), end_index)
+
+        relevant_distances = distances[start_index:end_index]
+
+        
+        error_left = self.desired_distance_right - sum(relevant_distances) / len(relevant_distances)
 
 
         #to detect if we have an obsticle in front, we use the front 30 degrees
@@ -68,7 +82,7 @@ class FollowWallNode(Node):
         dist_left = 0
 
         if self.reverse_run: 
-            dist_left = ((dist_means[14]+dist_means[15] + dist_means[16] + dist_means[17])/4)
+            dist_left = ((dist_means[13]+dist_means[14] + dist_means[15] + dist_means[16])/4)
         else: 
             dist_left = (dist_means[1]+dist_means[2] + dist_means[3] + dist_means[4])/4
 
@@ -78,8 +92,8 @@ class FollowWallNode(Node):
         self.run(error_left)
 
     def run(self,error_left):
-        base_throttle = 0.45
-        Kp = -0.26
+        base_throttle = 0.65
+        Kp = -0.4
         Kd = 0.05
         derivative = (error_left - self.previous_error)
         self.previous_error = error_left
@@ -90,7 +104,7 @@ class FollowWallNode(Node):
             angle_corrected = -1.0
 
         if self.reverse_run:
-            base_throttle *= -1
+            throttle_input *= -1
             angle_corrected *= -1
         # Populate the control message
         wheel_msg = ServoCtrlMsg()

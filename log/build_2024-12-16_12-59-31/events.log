@@ -1,0 +1,108 @@
+[0.000000] (-) TimerEvent: {}
+[0.000554] (-) JobUnselected: {'identifier': 'teleop_deeprace_pkg'}
+[0.000915] (follow_wall_pkg) JobQueued: {'identifier': 'follow_wall_pkg', 'dependencies': OrderedDict()}
+[0.001018] (follow_wall_pkg) JobStarted: {'identifier': 'follow_wall_pkg'}
+[0.089819] (-) TimerEvent: {}
+[0.191034] (-) TimerEvent: {}
+[0.292554] (-) TimerEvent: {}
+[0.393183] (-) TimerEvent: {}
+[0.493797] (-) TimerEvent: {}
+[0.594443] (-) TimerEvent: {}
+[0.695026] (-) TimerEvent: {}
+[0.795666] (-) TimerEvent: {}
+[0.897016] (-) TimerEvent: {}
+[0.997764] (-) TimerEvent: {}
+[1.099254] (-) TimerEvent: {}
+[1.200514] (-) TimerEvent: {}
+[1.301299] (-) TimerEvent: {}
+[1.406500] (-) TimerEvent: {}
+[1.509141] (-) TimerEvent: {}
+[1.610587] (-) TimerEvent: {}
+[1.711190] (-) TimerEvent: {}
+[1.811828] (-) TimerEvent: {}
+[1.912458] (-) TimerEvent: {}
+[2.013086] (-) TimerEvent: {}
+[2.114644] (-) TimerEvent: {}
+[2.215246] (-) TimerEvent: {}
+[2.322194] (-) TimerEvent: {}
+[2.425797] (-) TimerEvent: {}
+[2.475942] (follow_wall_pkg) Command: {'cmd': ['/usr/bin/python3', 'setup.py', 'egg_info', '--egg-base', '../build/follow_wall_pkg', 'build', '--build-base', '/home/deepracer/Desktop/deepracer_ws/src/adv-deep-racer/build/follow_wall_pkg/build', 'install', '--prefix', '/home/deepracer/Desktop/deepracer_ws/src/adv-deep-racer/install/follow_wall_pkg', '--record', '/home/deepracer/Desktop/deepracer_ws/src/adv-deep-racer/build/follow_wall_pkg/install.log', '--single-version-externally-managed'], 'cwd': '/home/deepracer/Desktop/deepracer_ws/src/adv-deep-racer/follow_wall_pkg', 'env': {'SUDO_GID': '1000', 'LESSOPEN': '| /usr/bin/lesspipe %s', 'MAIL': '/var/mail/root', 'USER': 'root', 'ROS_PACKAGE_PATH': '/opt/aws/deepracer/lib/async_web_server_cpp/share', 'SHLVL': '1', 'LD_LIBRARY_PATH': '/home/deepracer/Desktop/deepracer_ws/install/deepracer_interfaces_pkg/lib:/opt/aws/deepracer/lib/rplidar_ros/lib:/opt/aws/deepracer/lib/deepracer_interfaces_pkg/lib:/opt/aws/deepracer/lib/async_web_server_cpp/lib:/opt/ros/foxy/opt/yaml_cpp_vendor/lib:/opt/ros/foxy/opt/rviz_ogre_vendor/lib:/opt/ros/foxy/lib/x86_64-linux-gnu:/opt/ros/foxy/lib', 'HOME': '/root', 'OLDPWD': '/home/deepracer/Desktop/deepracer_ws/src', 'ROS_PYTHON_VERSION': '3', 'COLCON_PREFIX_PATH': '/home/deepracer/Desktop/deepracer_ws/install:/opt/aws/deepracer/lib', 'SUDO_UID': '1000', 'ROS_DISTRO': 'foxy', 'LOGNAME': 'root', '_': '/usr/bin/colcon', 'ROS_VERSION': '2', 'PKG_CONFIG_PATH': '/opt/aws/deepracer/lib/async_web_server_cpp/lib/x86_64-linux-gnu/pkgconfig:/opt/aws/deepracer/lib/async_web_server_cpp/lib/pkgconfig', 'TERM': 'xterm-256color', 'ROS_LOCALHOST_ONLY': '0', 'PATH': '/opt/ros/foxy/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games', 'LANG': 'en_US.UTF-8', 'LS_COLORS': 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:', 'SUDO_COMMAND': '/usr/bin/su', 'ROS_DOMAIN_ID': '61', 'AMENT_PREFIX_PATH': '/home/deepracer/Desktop/deepracer_ws/install/teleop_deeprace_pkg:/home/deepracer/Desktop/deepracer_ws/install/servo_pkg:/home/deepracer/Desktop/deepracer_ws/install/rf2o_laser_odometry:/home/deepracer/Desktop/deepracer_ws/install/follow_wall_pkg:/home/deepracer/Desktop/deepracer_ws/install/enable_deepracer_nav_pkg:/home/deepracer/Desktop/deepracer_ws/install/cmdvel_to_servo_pkg:/home/deepracer/Desktop/deepracer_ws/install/camera_pkg:/home/deepracer/Desktop/deepracer_ws/install/deepracer_interfaces_pkg:/home/deepracer/Desktop/deepracer_ws/install/deepracer_bringup:/opt/aws/deepracer/lib/deepracer_launcher:/opt/aws/deepracer/lib/webserver_pkg:/opt/aws/deepracer/lib/web_video_server:/opt/aws/deepracer/lib/deepracer_systems_pkg:/opt/aws/deepracer/lib/usb_monitor_pkg:/opt/aws/deepracer/lib/status_led_pkg:/opt/aws/deepracer/lib/ctrl_pkg:/opt/aws/deepracer/lib/servo_pkg:/opt/aws/deepracer/lib/sensor_fusion_pkg:/opt/aws/deepracer/lib/rplidar_ros:/opt/aws/deepracer/lib/model_optimizer_pkg:/opt/aws/deepracer/lib/inference_pkg:/opt/aws/deepracer/lib/i2c_pkg:/opt/aws/deepracer/lib/device_info_pkg:/opt/aws/deepracer/lib/deepracer_navigation_pkg:/opt/aws/deepracer/lib/camera_pkg:/opt/aws/deepracer/lib/deepracer_interfaces_pkg:/opt/ros/foxy', 'SHELL': '/bin/bash', 'SUDO_USER': 'deepracer', 'LESSCLOSE': '/usr/bin/lesspipe %s %s', 'PWD': '/home/deepracer/Desktop/deepracer_ws/src/adv-deep-racer/build/follow_wall_pkg', 'LC_ALL': 'en_US.UTF-8', 'PYTHONPATH': '/home/deepracer/Desktop/deepracer_ws/src/adv-deep-racer/install/follow_wall_pkg/lib/python3.8/site-packages:/home/deepracer/Desktop/deepracer_ws/install/teleop_deeprace_pkg/lib/python3.8/site-packages:/home/deepracer/Desktop/deepracer_ws/install/follow_wall_pkg/lib/python3.8/site-packages:/home/deepracer/Desktop/deepracer_ws/install/enable_deepracer_nav_pkg/lib/python3.8/site-packages:/home/deepracer/Desktop/deepracer_ws/install/cmdvel_to_servo_pkg/lib/python3.8/site-packages:/home/deepracer/Desktop/deepracer_ws/install/deepracer_interfaces_pkg/lib/python3.8/site-packages:/opt/aws/deepracer/lib/webserver_pkg/lib/python3.8/site-packages:/opt/aws/deepracer/lib/deepracer_systems_pkg/lib/python3.8/site-packages:/opt/aws/deepracer/lib/usb_monitor_pkg/lib/python3.8/site-packages:/opt/aws/deepracer/lib/status_led_pkg/lib/python3.8/site-packages:/opt/aws/deepracer/lib/model_optimizer_pkg/lib/python3.8/site-packages:/opt/aws/deepracer/lib/device_info_pkg/lib/python3.8/site-packages:/opt/aws/deepracer/lib/deepracer_navigation_pkg/lib/python3.8/site-packages:/opt/aws/deepracer/lib/deepracer_interfaces_pkg/lib/python3.8/site-packages:/opt/ros/foxy/lib/python3.8/site-packages', 'COLCON': '1', 'CMAKE_PREFIX_PATH': '/home/deepracer/Desktop/deepracer_ws/install/servo_pkg:/home/deepracer/Desktop/deepracer_ws/install/rf2o_laser_odometry:/home/deepracer/Desktop/deepracer_ws/install/camera_pkg:/home/deepracer/Desktop/deepracer_ws/install/deepracer_interfaces_pkg:/home/deepracer/Desktop/deepracer_ws/install/deepracer_bringup:/opt/aws/deepracer/lib/deepracer_launcher:/opt/aws/deepracer/lib/web_video_server:/opt/aws/deepracer/lib/ctrl_pkg:/opt/aws/deepracer/lib/servo_pkg:/opt/aws/deepracer/lib/sensor_fusion_pkg:/opt/aws/deepracer/lib/rplidar_ros:/opt/aws/deepracer/lib/inference_pkg:/opt/aws/deepracer/lib/i2c_pkg:/opt/aws/deepracer/lib/camera_pkg:/opt/aws/deepracer/lib/deepracer_interfaces_pkg:/opt/aws/deepracer/lib/async_web_server_cpp'}, 'shell': False}
+[2.526114] (-) TimerEvent: {}
+[2.629732] (-) TimerEvent: {}
+[2.736280] (-) TimerEvent: {}
+[2.837389] (-) TimerEvent: {}
+[2.940196] (-) TimerEvent: {}
+[3.042478] (-) TimerEvent: {}
+[3.144063] (-) TimerEvent: {}
+[3.245453] (-) TimerEvent: {}
+[3.347136] (-) TimerEvent: {}
+[3.451675] (-) TimerEvent: {}
+[3.553394] (-) TimerEvent: {}
+[3.655056] (-) TimerEvent: {}
+[3.756016] (-) TimerEvent: {}
+[3.857637] (-) TimerEvent: {}
+[3.958942] (-) TimerEvent: {}
+[4.060538] (-) TimerEvent: {}
+[4.163169] (-) TimerEvent: {}
+[4.264246] (-) TimerEvent: {}
+[4.366609] (-) TimerEvent: {}
+[4.470424] (-) TimerEvent: {}
+[4.572661] (-) TimerEvent: {}
+[4.673535] (-) TimerEvent: {}
+[4.774167] (-) TimerEvent: {}
+[4.874806] (-) TimerEvent: {}
+[4.975450] (-) TimerEvent: {}
+[5.025759] (follow_wall_pkg) StdoutLine: {'line': b'running egg_info\n'}
+[5.033852] (follow_wall_pkg) StdoutLine: {'line': b'creating ../build/follow_wall_pkg/follow_wall_pkg.egg-info\n'}
+[5.037044] (follow_wall_pkg) StdoutLine: {'line': b'writing ../build/follow_wall_pkg/follow_wall_pkg.egg-info/PKG-INFO\n'}
+[5.040833] (follow_wall_pkg) StdoutLine: {'line': b'writing dependency_links to ../build/follow_wall_pkg/follow_wall_pkg.egg-info/dependency_links.txt\n'}
+[5.043403] (follow_wall_pkg) StdoutLine: {'line': b'writing entry points to ../build/follow_wall_pkg/follow_wall_pkg.egg-info/entry_points.txt\n'}
+[5.046534] (follow_wall_pkg) StdoutLine: {'line': b'writing requirements to ../build/follow_wall_pkg/follow_wall_pkg.egg-info/requires.txt\n'}
+[5.047925] (follow_wall_pkg) StdoutLine: {'line': b'writing top-level names to ../build/follow_wall_pkg/follow_wall_pkg.egg-info/top_level.txt\n'}
+[5.069733] (follow_wall_pkg) StdoutLine: {'line': b"writing manifest file '../build/follow_wall_pkg/follow_wall_pkg.egg-info/SOURCES.txt'\n"}
+[5.075596] (-) TimerEvent: {}
+[5.176260] (-) TimerEvent: {}
+[5.277929] (-) TimerEvent: {}
+[5.378855] (-) TimerEvent: {}
+[5.443684] (follow_wall_pkg) StdoutLine: {'line': b"reading manifest file '../build/follow_wall_pkg/follow_wall_pkg.egg-info/SOURCES.txt'\n"}
+[5.460173] (follow_wall_pkg) StdoutLine: {'line': b"writing manifest file '../build/follow_wall_pkg/follow_wall_pkg.egg-info/SOURCES.txt'\n"}
+[5.461688] (follow_wall_pkg) StdoutLine: {'line': b'running build\n'}
+[5.462919] (follow_wall_pkg) StdoutLine: {'line': b'running build_py\n'}
+[5.465531] (follow_wall_pkg) StdoutLine: {'line': b'creating /home/deepracer/Desktop/deepracer_ws/src/adv-deep-racer/build/follow_wall_pkg/build\n'}
+[5.466505] (follow_wall_pkg) StdoutLine: {'line': b'creating /home/deepracer/Desktop/deepracer_ws/src/adv-deep-racer/build/follow_wall_pkg/build/lib\n'}
+[5.467868] (follow_wall_pkg) StdoutLine: {'line': b'creating /home/deepracer/Desktop/deepracer_ws/src/adv-deep-racer/build/follow_wall_pkg/build/lib/follow_wall_pkg\n'}
+[5.471659] (follow_wall_pkg) StdoutLine: {'line': b'copying follow_wall_pkg/__init__.py -> /home/deepracer/Desktop/deepracer_ws/src/adv-deep-racer/build/follow_wall_pkg/build/lib/follow_wall_pkg\n'}
+[5.474447] (follow_wall_pkg) StdoutLine: {'line': b'copying follow_wall_pkg/follow_wall_node.py -> /home/deepracer/Desktop/deepracer_ws/src/adv-deep-racer/build/follow_wall_pkg/build/lib/follow_wall_pkg\n'}
+[5.478190] (follow_wall_pkg) StdoutLine: {'line': b'running install\n'}
+[5.478937] (-) TimerEvent: {}
+[5.487487] (follow_wall_pkg) StdoutLine: {'line': b'running install_lib\n'}
+[5.504509] (follow_wall_pkg) StdoutLine: {'line': b'creating /home/deepracer/Desktop/deepracer_ws/src/adv-deep-racer/install/follow_wall_pkg/lib/python3.8/site-packages/follow_wall_pkg\n'}
+[5.507028] (follow_wall_pkg) StdoutLine: {'line': b'copying /home/deepracer/Desktop/deepracer_ws/src/adv-deep-racer/build/follow_wall_pkg/build/lib/follow_wall_pkg/__init__.py -> /home/deepracer/Desktop/deepracer_ws/src/adv-deep-racer/install/follow_wall_pkg/lib/python3.8/site-packages/follow_wall_pkg\n'}
+[5.511079] (follow_wall_pkg) StdoutLine: {'line': b'copying /home/deepracer/Desktop/deepracer_ws/src/adv-deep-racer/build/follow_wall_pkg/build/lib/follow_wall_pkg/follow_wall_node.py -> /home/deepracer/Desktop/deepracer_ws/src/adv-deep-racer/install/follow_wall_pkg/lib/python3.8/site-packages/follow_wall_pkg\n'}
+[5.526681] (follow_wall_pkg) StdoutLine: {'line': b'byte-compiling /home/deepracer/Desktop/deepracer_ws/src/adv-deep-racer/install/follow_wall_pkg/lib/python3.8/site-packages/follow_wall_pkg/__init__.py to __init__.cpython-38.pyc\n'}
+[5.537738] (follow_wall_pkg) StdoutLine: {'line': b'byte-compiling /home/deepracer/Desktop/deepracer_ws/src/adv-deep-racer/install/follow_wall_pkg/lib/python3.8/site-packages/follow_wall_pkg/follow_wall_node.py to follow_wall_node.cpython-38.pyc\n'}
+[5.543395] (follow_wall_pkg) StdoutLine: {'line': b'running install_data\n'}
+[5.557854] (follow_wall_pkg) StdoutLine: {'line': b'creating /home/deepracer/Desktop/deepracer_ws/src/adv-deep-racer/install/follow_wall_pkg/share/ament_index\n'}
+[5.559043] (follow_wall_pkg) StdoutLine: {'line': b'creating /home/deepracer/Desktop/deepracer_ws/src/adv-deep-racer/install/follow_wall_pkg/share/ament_index/resource_index\n'}
+[5.559609] (follow_wall_pkg) StdoutLine: {'line': b'creating /home/deepracer/Desktop/deepracer_ws/src/adv-deep-racer/install/follow_wall_pkg/share/ament_index/resource_index/packages\n'}
+[5.563682] (follow_wall_pkg) StdoutLine: {'line': b'copying resource/follow_wall_pkg -> /home/deepracer/Desktop/deepracer_ws/src/adv-deep-racer/install/follow_wall_pkg/share/ament_index/resource_index/packages\n'}
+[5.565015] (follow_wall_pkg) StdoutLine: {'line': b'copying package.xml -> /home/deepracer/Desktop/deepracer_ws/src/adv-deep-racer/install/follow_wall_pkg/share/follow_wall_pkg\n'}
+[5.570952] (follow_wall_pkg) StdoutLine: {'line': b'running install_egg_info\n'}
+[5.579124] (-) TimerEvent: {}
+[5.596310] (follow_wall_pkg) StdoutLine: {'line': b'Copying ../build/follow_wall_pkg/follow_wall_pkg.egg-info to /home/deepracer/Desktop/deepracer_ws/src/adv-deep-racer/install/follow_wall_pkg/lib/python3.8/site-packages/follow_wall_pkg-0.0.0-py3.8.egg-info\n'}
+[5.603681] (follow_wall_pkg) StdoutLine: {'line': b'running install_scripts\n'}
+[5.679318] (-) TimerEvent: {}
+[5.781062] (-) TimerEvent: {}
+[5.881808] (-) TimerEvent: {}
+[5.905267] (follow_wall_pkg) StdoutLine: {'line': b'Installing follow_wall_node script to /home/deepracer/Desktop/deepracer_ws/src/adv-deep-racer/install/follow_wall_pkg/lib/follow_wall_pkg\n'}
+[5.909528] (follow_wall_pkg) StdoutLine: {'line': b"writing list of installed files to '/home/deepracer/Desktop/deepracer_ws/src/adv-deep-racer/build/follow_wall_pkg/install.log'\n"}
+[5.983412] (-) TimerEvent: {}
+[6.087716] (follow_wall_pkg) CommandEnded: {'returncode': 0}
+[6.095901] (-) TimerEvent: {}
+[6.199160] (-) TimerEvent: {}
+[6.302373] (-) TimerEvent: {}
+[6.405730] (-) TimerEvent: {}
+[6.506528] (-) TimerEvent: {}
+[6.595359] (follow_wall_pkg) JobEnded: {'identifier': 'follow_wall_pkg', 'rc': 0}
+[6.607190] (-) TimerEvent: {}
+[6.611501] (-) EventReactorShutdown: {}

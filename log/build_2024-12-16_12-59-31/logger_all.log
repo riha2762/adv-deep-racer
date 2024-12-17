@@ -1,0 +1,121 @@
+[2.677s] DEBUG:colcon:Command line arguments: ['/usr/bin/colcon', 'build', '--packages-select', 'follow_wall_pkg']
+[2.677s] DEBUG:colcon:Parsed command line arguments: Namespace(ament_cmake_args=None, base_paths=['.'], build_base='build', catkin_cmake_args=None, catkin_skip_building_tests=False, cmake_args=None, cmake_clean_cache=False, cmake_clean_first=False, cmake_force_configure=False, cmake_target=None, cmake_target_skip_unavailable=False, continue_on_error=False, event_handlers=None, executor='parallel', ignore_user_meta=False, install_base='install', log_base=None, log_level=None, main=<bound method BuildVerb.main of <colcon_core.verb.build.BuildVerb object at 0x7f3a10414e80>>, merge_install=False, metas=['./colcon.meta'], packages_above=None, packages_above_and_dependencies=None, packages_above_depth=None, packages_end=None, packages_ignore=None, packages_ignore_regex=None, packages_select=['follow_wall_pkg'], packages_select_build_failed=False, packages_select_by_dep=None, packages_select_regex=None, packages_select_test_failures=False, packages_skip=None, packages_skip_build_finished=False, packages_skip_by_dep=None, packages_skip_regex=None, packages_skip_test_passed=False, packages_skip_up_to=None, packages_start=None, packages_up_to=None, packages_up_to_regex=None, parallel_workers=2, paths=None, symlink_install=False, test_result_base=None, verb_extension=<colcon_core.verb.build.BuildVerb object at 0x7f3a10414e80>, verb_name='build', verb_parser=<colcon_defaults.argument_parser.defaults.DefaultArgumentsDecorator object at 0x7f3a10420430>)
+[2.883s] Level 1:colcon.colcon_core.package_discovery:discover_packages(colcon_meta) check parameters
+[2.884s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) check parameters
+[2.884s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) check parameters
+[2.884s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) check parameters
+[2.884s] Level 1:colcon.colcon_core.package_discovery:discover_packages(colcon_meta) discover
+[2.884s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) discover
+[2.885s] INFO:colcon.colcon_core.package_discovery:Crawling recursively for packages in '/home/deepracer/Desktop/deepracer_ws/src/adv-deep-racer'
+[2.885s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['ignore', 'ignore_ament_install']
+[2.886s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ignore'
+[2.886s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ignore_ament_install'
+[2.887s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['colcon_pkg']
+[2.887s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'colcon_pkg'
+[2.887s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['colcon_meta']
+[2.887s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'colcon_meta'
+[2.887s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['ros']
+[2.887s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ros'
+[2.980s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['cmake', 'python']
+[2.981s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'cmake'
+[2.981s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'python'
+[2.981s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['python_setup_py']
+[2.981s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'python_setup_py'
+[2.982s] Level 1:colcon.colcon_core.package_identification:_identify(build) by extensions ['ignore', 'ignore_ament_install']
+[2.982s] Level 1:colcon.colcon_core.package_identification:_identify(build) by extension 'ignore'
+[2.982s] Level 1:colcon.colcon_core.package_identification:_identify(build) ignored
+[2.983s] Level 1:colcon.colcon_core.package_identification:_identify(follow_wall_pkg) by extensions ['ignore', 'ignore_ament_install']
+[2.986s] Level 1:colcon.colcon_core.package_identification:_identify(follow_wall_pkg) by extension 'ignore'
+[2.986s] Level 1:colcon.colcon_core.package_identification:_identify(follow_wall_pkg) by extension 'ignore_ament_install'
+[2.986s] Level 1:colcon.colcon_core.package_identification:_identify(follow_wall_pkg) by extensions ['colcon_pkg']
+[2.987s] Level 1:colcon.colcon_core.package_identification:_identify(follow_wall_pkg) by extension 'colcon_pkg'
+[2.987s] Level 1:colcon.colcon_core.package_identification:_identify(follow_wall_pkg) by extensions ['colcon_meta']
+[2.987s] Level 1:colcon.colcon_core.package_identification:_identify(follow_wall_pkg) by extension 'colcon_meta'
+[2.987s] Level 1:colcon.colcon_core.package_identification:_identify(follow_wall_pkg) by extensions ['ros']
+[2.987s] Level 1:colcon.colcon_core.package_identification:_identify(follow_wall_pkg) by extension 'ros'
+[3.177s] DEBUG:colcon.colcon_core.package_identification:Package 'follow_wall_pkg' with type 'ros.ament_python' and name 'follow_wall_pkg'
+[3.178s] Level 1:colcon.colcon_core.package_identification:_identify(install) by extensions ['ignore', 'ignore_ament_install']
+[3.178s] Level 1:colcon.colcon_core.package_identification:_identify(install) by extension 'ignore'
+[3.179s] Level 1:colcon.colcon_core.package_identification:_identify(install) ignored
+[3.180s] Level 1:colcon.colcon_core.package_identification:_identify(log) by extensions ['ignore', 'ignore_ament_install']
+[3.180s] Level 1:colcon.colcon_core.package_identification:_identify(log) by extension 'ignore'
+[3.180s] Level 1:colcon.colcon_core.package_identification:_identify(log) ignored
+[3.181s] Level 1:colcon.colcon_core.package_identification:_identify(teleop_deeprace_pkg) by extensions ['ignore', 'ignore_ament_install']
+[3.182s] Level 1:colcon.colcon_core.package_identification:_identify(teleop_deeprace_pkg) by extension 'ignore'
+[3.182s] Level 1:colcon.colcon_core.package_identification:_identify(teleop_deeprace_pkg) by extension 'ignore_ament_install'
+[3.183s] Level 1:colcon.colcon_core.package_identification:_identify(teleop_deeprace_pkg) by extensions ['colcon_pkg']
+[3.183s] Level 1:colcon.colcon_core.package_identification:_identify(teleop_deeprace_pkg) by extension 'colcon_pkg'
+[3.183s] Level 1:colcon.colcon_core.package_identification:_identify(teleop_deeprace_pkg) by extensions ['colcon_meta']
+[3.183s] Level 1:colcon.colcon_core.package_identification:_identify(teleop_deeprace_pkg) by extension 'colcon_meta'
+[3.183s] Level 1:colcon.colcon_core.package_identification:_identify(teleop_deeprace_pkg) by extensions ['ros']
+[3.184s] Level 1:colcon.colcon_core.package_identification:_identify(teleop_deeprace_pkg) by extension 'ros'
+[3.189s] DEBUG:colcon.colcon_core.package_identification:Package 'teleop_deeprace_pkg' with type 'ros.ament_python' and name 'teleop_deeprace_pkg'
+[3.189s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) using defaults
+[3.190s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) discover
+[3.190s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) using defaults
+[3.190s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) discover
+[3.190s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) using defaults
+[3.295s] INFO:colcon.colcon_core.package_selection:Skipping not selected package 'teleop_deeprace_pkg' in 'teleop_deeprace_pkg'
+[3.309s] Level 5:colcon.colcon_core.verb:set package 'follow_wall_pkg' build argument 'cmake_args' from command line to 'None'
+[3.309s] Level 5:colcon.colcon_core.verb:set package 'follow_wall_pkg' build argument 'cmake_target' from command line to 'None'
+[3.309s] Level 5:colcon.colcon_core.verb:set package 'follow_wall_pkg' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[3.310s] Level 5:colcon.colcon_core.verb:set package 'follow_wall_pkg' build argument 'cmake_clean_cache' from command line to 'False'
+[3.310s] Level 5:colcon.colcon_core.verb:set package 'follow_wall_pkg' build argument 'cmake_clean_first' from command line to 'False'
+[3.310s] Level 5:colcon.colcon_core.verb:set package 'follow_wall_pkg' build argument 'cmake_force_configure' from command line to 'False'
+[3.310s] Level 5:colcon.colcon_core.verb:set package 'follow_wall_pkg' build argument 'ament_cmake_args' from command line to 'None'
+[3.310s] Level 5:colcon.colcon_core.verb:set package 'follow_wall_pkg' build argument 'catkin_cmake_args' from command line to 'None'
+[3.310s] Level 5:colcon.colcon_core.verb:set package 'follow_wall_pkg' build argument 'catkin_skip_building_tests' from command line to 'False'
+[3.310s] DEBUG:colcon.colcon_core.verb:Building package 'follow_wall_pkg' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/deepracer/Desktop/deepracer_ws/src/adv-deep-racer/build/follow_wall_pkg', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/deepracer/Desktop/deepracer_ws/src/adv-deep-racer/install/follow_wall_pkg', 'merge_install': False, 'path': '/home/deepracer/Desktop/deepracer_ws/src/adv-deep-racer/follow_wall_pkg', 'symlink_install': False, 'test_result_base': None}
+[3.313s] INFO:colcon.colcon_core.executor:Executing jobs using 'parallel' executor
+[3.321s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:run_until_complete
+[3.322s] INFO:colcon.colcon_ros.task.ament_python.build:Building ROS package in '/home/deepracer/Desktop/deepracer_ws/src/adv-deep-racer/follow_wall_pkg' with build type 'ament_python'
+[3.323s] Level 1:colcon.colcon_core.shell:create_environment_hook('follow_wall_pkg', 'ament_prefix_path')
+[3.351s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_core.shell.bat': Not used on non-Windows systems
+[3.352s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/deepracer/Desktop/deepracer_ws/src/adv-deep-racer/install/follow_wall_pkg/share/follow_wall_pkg/hook/ament_prefix_path.ps1'
+[3.355s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/deepracer/Desktop/deepracer_ws/src/adv-deep-racer/install/follow_wall_pkg/share/follow_wall_pkg/hook/ament_prefix_path.dsv'
+[3.358s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/deepracer/Desktop/deepracer_ws/src/adv-deep-racer/install/follow_wall_pkg/share/follow_wall_pkg/hook/ament_prefix_path.sh'
+[3.363s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[3.364s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[3.428s] DEBUG:colcon.colcon_core.shell:Ignoring prefix path '/opt/ros/foxy'
+[5.644s] INFO:colcon.colcon_core.task.python.build:Building Python package in '/home/deepracer/Desktop/deepracer_ws/src/adv-deep-racer/follow_wall_pkg'
+[5.665s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[5.665s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[5.747s] DEBUG:colcon.colcon_core.shell:Ignoring prefix path '/opt/ros/foxy'
+[5.815s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/deepracer/Desktop/deepracer_ws/src/adv-deep-racer/follow_wall_pkg': PYTHONPATH=/home/deepracer/Desktop/deepracer_ws/src/adv-deep-racer/install/follow_wall_pkg/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py egg_info --egg-base ../build/follow_wall_pkg build --build-base /home/deepracer/Desktop/deepracer_ws/src/adv-deep-racer/build/follow_wall_pkg/build install --prefix /home/deepracer/Desktop/deepracer_ws/src/adv-deep-racer/install/follow_wall_pkg --record /home/deepracer/Desktop/deepracer_ws/src/adv-deep-racer/build/follow_wall_pkg/install.log --single-version-externally-managed
+[9.425s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/deepracer/Desktop/deepracer_ws/src/adv-deep-racer/follow_wall_pkg' returned '0': PYTHONPATH=/home/deepracer/Desktop/deepracer_ws/src/adv-deep-racer/install/follow_wall_pkg/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py egg_info --egg-base ../build/follow_wall_pkg build --build-base /home/deepracer/Desktop/deepracer_ws/src/adv-deep-racer/build/follow_wall_pkg/build install --prefix /home/deepracer/Desktop/deepracer_ws/src/adv-deep-racer/install/follow_wall_pkg --record /home/deepracer/Desktop/deepracer_ws/src/adv-deep-racer/build/follow_wall_pkg/install.log --single-version-externally-managed
+[9.616s] Level 1:colcon.colcon_core.environment:checking '/home/deepracer/Desktop/deepracer_ws/src/adv-deep-racer/install/follow_wall_pkg' for CMake module files
+[9.624s] Level 1:colcon.colcon_core.environment:checking '/home/deepracer/Desktop/deepracer_ws/src/adv-deep-racer/install/follow_wall_pkg' for CMake config files
+[9.637s] Level 1:colcon.colcon_core.environment:checking '/home/deepracer/Desktop/deepracer_ws/src/adv-deep-racer/install/follow_wall_pkg/lib'
+[9.646s] Level 1:colcon.colcon_core.environment:checking '/home/deepracer/Desktop/deepracer_ws/src/adv-deep-racer/install/follow_wall_pkg/bin'
+[9.647s] Level 1:colcon.colcon_core.environment:checking '/home/deepracer/Desktop/deepracer_ws/src/adv-deep-racer/install/follow_wall_pkg/lib/pkgconfig/follow_wall_pkg.pc'
+[9.650s] Level 1:colcon.colcon_core.environment:checking '/home/deepracer/Desktop/deepracer_ws/src/adv-deep-racer/install/follow_wall_pkg/lib/python3.8/site-packages'
+[9.651s] Level 1:colcon.colcon_core.shell:create_environment_hook('follow_wall_pkg', 'pythonpath')
+[9.663s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/deepracer/Desktop/deepracer_ws/src/adv-deep-racer/install/follow_wall_pkg/share/follow_wall_pkg/hook/pythonpath.ps1'
+[9.674s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/deepracer/Desktop/deepracer_ws/src/adv-deep-racer/install/follow_wall_pkg/share/follow_wall_pkg/hook/pythonpath.dsv'
+[9.682s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/deepracer/Desktop/deepracer_ws/src/adv-deep-racer/install/follow_wall_pkg/share/follow_wall_pkg/hook/pythonpath.sh'
+[9.687s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(follow_wall_pkg)
+[9.701s] INFO:colcon.colcon_core.shell:Creating package script '/home/deepracer/Desktop/deepracer_ws/src/adv-deep-racer/install/follow_wall_pkg/share/follow_wall_pkg/package.ps1'
+[9.859s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/deepracer/Desktop/deepracer_ws/src/adv-deep-racer/install/follow_wall_pkg/share/follow_wall_pkg/package.dsv'
+[9.867s] INFO:colcon.colcon_core.shell:Creating package script '/home/deepracer/Desktop/deepracer_ws/src/adv-deep-racer/install/follow_wall_pkg/share/follow_wall_pkg/package.sh'
+[9.887s] INFO:colcon.colcon_core.shell:Creating package script '/home/deepracer/Desktop/deepracer_ws/src/adv-deep-racer/install/follow_wall_pkg/share/follow_wall_pkg/package.bash'
+[9.906s] INFO:colcon.colcon_core.shell:Creating package script '/home/deepracer/Desktop/deepracer_ws/src/adv-deep-racer/install/follow_wall_pkg/share/follow_wall_pkg/package.zsh'
+[9.919s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/deepracer/Desktop/deepracer_ws/src/adv-deep-racer/install/follow_wall_pkg/share/colcon-core/packages/follow_wall_pkg)
+[9.933s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:closing loop
+[9.940s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:loop closed
+[9.941s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:run_until_complete finished with '0'
+[9.942s] DEBUG:colcon.colcon_core.event_reactor:joining thread
+[10.198s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_notification.desktop_notification.terminal_notifier': Not used on non-Darwin systems
+[10.200s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_notification.desktop_notification.win32': Not used on non-Windows systems
+[10.202s] INFO:colcon.colcon_notification.desktop_notification:Sending desktop notification using 'notify2'
+[10.205s] DEBUG:colcon.colcon_notification.desktop_notification.notify2:Failed to initialize notify2: org.freedesktop.DBus.Error.NotSupported: Unable to autolaunch a dbus-daemon without a $DISPLAY for X11
+[10.207s] DEBUG:colcon.colcon_core.event_reactor:joined thread
+[10.214s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/deepracer/Desktop/deepracer_ws/src/adv-deep-racer/install/local_setup.ps1'
+[10.390s] INFO:colcon.colcon_core.shell:Creating prefix util module '/home/deepracer/Desktop/deepracer_ws/src/adv-deep-racer/install/_local_setup_util_ps1.py'
+[10.401s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/deepracer/Desktop/deepracer_ws/src/adv-deep-racer/install/setup.ps1'
+[10.420s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/deepracer/Desktop/deepracer_ws/src/adv-deep-racer/install/local_setup.sh'
+[10.424s] INFO:colcon.colcon_core.shell:Creating prefix util module '/home/deepracer/Desktop/deepracer_ws/src/adv-deep-racer/install/_local_setup_util_sh.py'
+[10.427s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/deepracer/Desktop/deepracer_ws/src/adv-deep-racer/install/setup.sh'
+[10.440s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/deepracer/Desktop/deepracer_ws/src/adv-deep-racer/install/local_setup.bash'
+[10.443s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/deepracer/Desktop/deepracer_ws/src/adv-deep-racer/install/setup.bash'
+[10.456s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/deepracer/Desktop/deepracer_ws/src/adv-deep-racer/install/local_setup.zsh'
+[10.467s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/deepracer/Desktop/deepracer_ws/src/adv-deep-racer/install/setup.zsh'

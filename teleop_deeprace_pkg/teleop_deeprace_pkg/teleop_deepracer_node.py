@@ -67,8 +67,8 @@ class TeleopDeepracer(Node):
 
     def run(self):
         wheel_msg = ServoCtrlMsg()
-        throttle_increment = 0.5  # Increment step for throttle
-        angle_increment = 1.0     # Increment step for angle
+        throttle_increment = 0.05  # Increment step for throttle
+        angle_increment = 0.5     # Increment step for angle
         max_value = 1.0            # Maximum value for throttle and angle
         min_value = -1.0           # Minimum value for throttle and angle
 
